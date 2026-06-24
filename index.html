@@ -23,9 +23,9 @@
         }
 
         h2 {
-            color: #222;
-            font-size: 45px;
-            display: none;
+            color: #d62828;
+            font-size: 35px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -33,25 +33,34 @@
 <body>
 
     <h1 id="message"></h1>
-    <h2 id="reply">2008 deua nid te</h2>
+    <h2 id="reply"></h2>
 
     <script>
-        const text = "Tau raag koiro na butum 🌚❤️";
-        let i = 0;
+        const text1 = "Tau raag koiren na madam 🥺❤️";
+        const text2 = "2008 deua nid te";
 
-        function typeWriter() {
-            if (i < text.length) {
-                document.getElementById("message").innerHTML += text.charAt(i);
+        let i = 0;
+        let j = 0;
+
+        function typeFirst() {
+            if (i < text1.length) {
+                document.getElementById("message").innerHTML += text1.charAt(i);
                 i++;
-                setTimeout(typeWriter, 100);
+                setTimeout(typeFirst, 100);
+            } else {
+                setTimeout(typeSecond, 800);
             }
         }
 
-        typeWriter();
+        function typeSecond() {
+            if (j < text2.length) {
+                document.getElementById("reply").innerHTML += text2.charAt(j);
+                j++;
+                setTimeout(typeSecond, 100);
+            }
+        }
 
-        setTimeout(() => {
-            document.getElementById("reply").style.display = "block";
-        }, 4000);
+        typeFirst();
     </script>
 
 </body>
