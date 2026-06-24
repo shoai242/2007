@@ -1,18 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Decode the Year</title>
+    <title>Special Message</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #d62828;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #222;
+            font-size: 55px;
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
-    <h2>Tau raag koiren na madam 🥺❤️</h2>
+
+    <h1 id="message"></h1>
+    <h2 id="year">2007</h2>
 
     <script>
-        const x = (50 * 40);
-        const y = Math.sqrt(49);
+        const text = "Tau raag koiren na madam 🥺❤️";
+        let i = 0;
 
-        const result = x + y;
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("message").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
 
-        document.write("<h1>" + result + "</h1>");
+        typeWriter();
+
+        setTimeout(() => {
+            document.getElementById("year").style.display = "block";
+        }, 4000);
     </script>
+
 </body>
 </html>
